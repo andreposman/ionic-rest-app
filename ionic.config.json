@@ -1,5 +1,7 @@
 {
   "name": "rest-app",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

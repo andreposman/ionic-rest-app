@@ -1,1 +1,9 @@
+@import '../../theme/variables.scss';
+
+.count-down-timer {
+    font-size: 3em;
+    color: var(--ion-color-almost-white);
+    width: 100%;
+    text-align: center;
+}
 

@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { NgCircleProgressModule } from 'ng-circle-progress';
 
 import { HomePage } from './home.page';
 
@@ -16,8 +17,18 @@ import { HomePage } from './home.page';
         path: '',
         component: HomePage
       }
-    ])
+    ]),
+    NgCircleProgressModule.forRoot({
+      // set defaults here
+      radius: 100,
+      outerStrokeWidth: 16,
+      innerStrokeWidth: 8,
+      outerStrokeColor: "#78C000",
+      animationDuration: 300,
+      animation: false,
+      responsive: true,
+    }),
   ],
   declarations: [HomePage]
 })
-export class HomePageModule {}
+export class HomePageModule { }

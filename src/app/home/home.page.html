@@ -1,12 +1,55 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content padding>
-  The world is your oyster.
-  <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
+
+    <ion-item class="top" color="dark">
+        <ion-label>Rest Duration</ion-label>
+        <ion-datetime #myPicker display-format="mm:ss" placeholder="Pick a rest period" [(ngModel)]="fullTime" (ionChange)="updateMyDate(myPicker.value)"></ion-datetime>
+      </ion-item>
+  
+  <circle-progress (click)="startTimer()"
+  [percent]="percent"
+  [radius]="radius"
+  
+  [showTitle] = true
+  [showUnits] = true
+  [showSubtitle] = false
+  [titleColor]="'#FFF'"
+  [titleFontSize]="30"
+  [unitsColor]="'#EEE'"
+  [unitsFontSize]="12"
+
+  [outerStrokeWidth]="16"
+  [outerStrokeGradient]= "true"
+  [outerStrokeColor]="'#ff9d2f'"
+  [outerStrokeGradientStopColor]="'#ff6120'"
+  [showZeroOuterStroke]="false"
+  
+  [innerStrokeWidth]="0"
+  [innerStrokeColor]="'#E03616'"
+  [showInnerStroke]="true"
+
+  [backgroundStroke]="'#FFF'"
+  [backgroundStrokeWidth]="0"
+  
+  [animation]="false"
+  [animationDuration]="300"
+  [clockwise] = true
+  [responsive] = true
+  [startFromZero] = true
+></circle-progress>
+
+<p class="count-down-timer">{{elapsed.h}}:{{elapsed.m}}:{{elapsed.s}}</p>
+
+<ion-fab vertical="bottom" horizontal="end" slot="fixed" id="btnPlay">
+    <ng-container *ngIf="timer == false; else running" >
+      <ion-fab-button (click)="startTimer()">
+          <ion-icon  name="play"></ion-icon>
+        </ion-fab-button>
+    </ng-container> 
+    <ng-template #running>
+        <ion-fab-button (click)="stopTimer()">
+            <ion-icon name="square"></ion-icon>
+          </ion-fab-button>
+    </ng-template>
+</ion-fab>
+
 </ion-content>
