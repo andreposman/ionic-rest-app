@@ -11,12 +11,12 @@ export class HomePage {
 
   percent: Number = 0;
   radius: Number = 100;
-  fullTime: any = '00:00:10';
+  fullTime: any = '00:01:00';
 
   timer: any = false;
   progress: any = 0;
   minutes: Number = 1;
-  seconds: any = 30;
+  seconds: Number = 0;
 
   overallTimer: any = false;
   elapsed: any = {
