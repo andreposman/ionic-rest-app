@@ -15,16 +15,16 @@ export class HomePage {
 
   timer: any = false;
   progress: any = 0;
-  minutes: Number = 1;
-  seconds: Number = 0;
+  minutes: any = 1;
+  seconds: any = 0;
 
-  overallTimer: any = false;
   elapsed: any = {
     h: '00',
     m: '00',
     s: '00',
   };
 
+  overallTimer: any = false;
 
   constructor(private insomnia: Insomnia) {
 
@@ -69,14 +69,14 @@ export class HomePage {
     let countDownDate = new Date();
 
     this.overallTimer = setInterval(() => {
-      // acha a distancai entre 'agora' e o countdown
+      // acha a distancia entre 'agora' e o countdown
       let now = new Date().getTime();
       let distance = now - countDownDate.getTime();
 
       // calculo para o tempo total
-      this.elapsed.h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      this.elapsed.m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      this.elapsed.s = Math.floor((distance % (1000 * 60)) / 1000);
+      this.elapsed.h = (Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)));
+      this.elapsed.m = (Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)));
+      this.elapsed.s = (Math.floor((distance % (1000 * 60)) / 1000));
 
       this.elapsed.h = this.addZeroToTime(this.elapsed.h, 2);
       this.elapsed.m = this.addZeroToTime(this.elapsed.m, 2);
@@ -93,7 +93,7 @@ export class HomePage {
   }
 
   stopTimer() {
-    clearInterval(this.timer)
+    clearInterval(this.timer);
     clearInterval(this.overallTimer);
     this.overallTimer = false;
     this.timer = false;

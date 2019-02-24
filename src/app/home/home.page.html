@@ -2,7 +2,7 @@
 
     <ion-item class="top" color="dark">
         <ion-label>Rest Duration</ion-label>
-        <ion-datetime #myPicker display-format="mm:ss" placeholder="Pick a rest period" [(ngModel)]="fullTime" (ionChange)="updateMyDate(myPicker.value)"></ion-datetime>
+        <ion-datetime display-format="mm:ss" placeholder="Pick a rest period" [(ngModel)]="fullTime"></ion-datetime>
       </ion-item>
   
   <circle-progress (click)="startTimer()"
@@ -21,7 +21,7 @@
   [outerStrokeGradient]= "true"
   [outerStrokeColor]="'#ff9d2f'"
   [outerStrokeGradientStopColor]="'#ff6120'"
-  [showZeroOuterStroke]="false"
+  [showZeroOuterStroke]="true"
   
   [innerStrokeWidth]="0"
   [innerStrokeColor]="'#E03616'"
